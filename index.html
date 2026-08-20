@@ -1,62 +1,235 @@
-Create a modern, responsive, single-page website with a sticky navigation menu for "Taj Al-Maali Company for Contracting, Trading, and Public Transport Ltd." (شركة تاج المعالي للمقاولات والتجارة والنقل المحدودة) using clean HTML5, Tailwind CSS (or modern CSS), and vanilla JavaScript.
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة تاج المعالي للمقاولات والتجارة والنقل العام المحدودة</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            maroon: '#80141E',
+                            dark: '#5A0D14',
+                            beige: '#F9F6F0',
+                            gold: '#D4AF37',
+                            slate: '#1E293B'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="font-cairo bg-gray-50 text-slate-800 antialiased selection:bg-brand-maroon selection:text-white">
 
-### Technical & Design Requirements:
-- **Language & Direction:** Bilingual support or clean Right-to-Left (RTL) Arabic layout with an option/subtext in English.
-- **Color Palette:** Deep corporate burgundy/maroon (`#80141E`), refined warm beige/stone tones, dark slate gray, and gold accents matching the company identity.
-- **Typography:** Elegant Arabic typography (e.g., Cairo, Tajawal, or IBM Plex Sans Arabic via Google Fonts) paired with modern sans-serif for English.
-- **Navigation Bar (Sticky):**
-  - Brand Logo & Name: "تاج المعالي | Taj Al-Maali"
-  - Menu Items (smooth scrolling to sections):
-    - نبذة عنا (About Us)
-    - الاختصاصات (Services / Specializations)
-    - المشاريع السابقة (Projects)
-    - أسطول الآليات والكوادر (Fleet & Team)
-    - اتصل بنا (Contact Us)
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo & Name -->
+                <a href="#" class="flex items-center space-x-3 space-x-reverse group">
+                    <div class="w-12 h-12 bg-brand-maroon rounded-lg flex items-center justify-center text-brand-gold font-bold text-2xl shadow-md group-hover:bg-brand-dark transition-colors">
+                        <i class="fa-solid font-bold">ت</i>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-extrabold text-brand-maroon leading-tight">تاج المعالي</span>
+                        <span class="block text-xs font-semibold text-gray-500 uppercase tracking-widest">Taj Al-Maali</span>
+                    </div>
+                </a>
 
----
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-8 space-x-reverse font-semibold text-gray-700">
+                    <a href="#about" class="hover:text-brand-maroon transition-colors">نبذة عنا</a>
+                    <a href="#services" class="hover:text-brand-maroon transition-colors">الاختصاصات</a>
+                    <a href="#projects" class="hover:text-brand-maroon transition-colors">المشاريع السابقة</a>
+                    <a href="#fleet" class="hover:text-brand-maroon transition-colors">الأسطول والكوادر</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-lg bg-brand-maroon text-white hover:bg-brand-dark transition-all shadow-sm">اتصل بنا</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-### Page Sections & Content Structure:
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-brand-slate via-slate-900 to-brand-maroon text-white py-24 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?q=80&w=1600')] bg-cover bg-center opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/20 text-brand-gold font-semibold text-sm mb-6 border border-brand-gold/30">
+                خبرة ممتدة وموثوقية عالية
+            </span>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight max-w-4xl mx-auto mb-6">
+                شركة تاج المعالي للمقاولات والتجارة والنقل العام المحدودة
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                رواد البناء الهندسي، المشاريع الإنشائية، والمقاولات العامة في العراق منذ عام 2009.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#projects" class="w-full sm:w-auto px-8 py-4 bg-brand-gold hover:bg-yellow-500 text-slate-900 font-bold rounded-lg transition-all shadow-lg text-center">
+                    استكشف مشاريعنا
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg border border-white/20 transition-all text-center">
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </section>
 
-1. **Hero Section:**
-   - Main headline: "شركة تاج المعالي للمقاولات والتجارة والنقل العام المحدودة"
-   - Sub-headline: "رواد البناء الهندسي، المشاريع الإنشائية، والمقاولات العامة في العراق منذ عام 2009"
-   - Call to Action buttons: "استكشف مشاريعنا" (Explore Projects) & "تواصل معنا" (Contact Us).
-   <!-- [IMAGE PLACEHOLDER 1: Hero Banner - Corporate HQ / Signature Construction Project] -->
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-brand-beige">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-maroon mb-4">نبذة عن الشركة</h2>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    تأسست شركة تاج المعالي عام 2009 كشركة مقاولات من الدرجة الأولى في العراق، متخصصة في تنفيذ المشاريع المدنية، الميكانيكية، والكهربائية وفق أعلى معايير الجودة العالمية.
+                </p>
+            </div>
 
-2. **About Us Section (نبذة عن الشركة):**
-   - Brief introduction: Established in 2009 as a First-Class contracting company in Iraq, specialized in civil, mechanical, and electrical contracting.
-   - Core statistics counter:
-     - +15 Years of Experience (منذ 2009)
-     - 3 Billion IQD Capital (رأس مال 3 مليارات دينار)
-     - +20 Major Completed Projects (أكثر من 20 مشروعاً منجزاً)
-     - +70 Engineers & Technical Specialists (أكثر من 70 مهندساً وفنياً)
+            <!-- Stats Counter Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="text-4xl font-black text-brand-maroon mb-2">+15</div>
+                    <div class="text-sm font-semibold text-gray-600">عاماً من الخبرة (منذ 2009)</div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="text-4xl font-black text-brand-maroon mb-2">3 مليار</div>
+                    <div class="text-sm font-semibold text-gray-600">دينار رأس المال (IQD)</div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="text-4xl font-black text-brand-maroon mb-2">+20</div>
+                    <div class="text-sm font-semibold text-gray-600">مشروعاً كبيراً منجزاً</div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="text-4xl font-black text-brand-maroon mb-2">+70</div>
+                    <div class="text-sm font-semibold text-gray-600">مهندساً وفنياً متخصصاً</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-3. **Specializations Section (الاختصاصات الرئيسية):**
-   - **المقاولات الإنشائية والمدنية (Civil & Structural):** الطرق والجسور، المستشفيات، المجمعات السكنية، الهياكل الحديدية، والصب الجاهز.
-   - **المقاولات الكهربائية (Electrical Works):** محطات التوليد، أبراج وشبكات نقل الطاقة، المولدات الضخمة، والاتصالات.
-   - **المقاولات الميكانيكية (Mechanical Works):** محطات تصفية المياه ومعالجة المجاري، شبكات الأنابيب والنفط، والتكييف المركزي.
-   <!-- [IMAGE PLACEHOLDER 2: Specializations Showcase - Construction & Engineering Works] -->
+    <!-- Specializations Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-maroon mb-4">الاختصاصات الرئيسية</h2>
+                <p class="text-gray-600">تقديم حلول هندسية متكاملة عبر القطاعات الإنشائية والكهربائية والتخصصية.</p>
+            </div>
 
-4. **Featured Projects Section (أبرز المشاريع المنجزة):**
-   - Grid or card view displaying key contracts:
-     - بناء مستشفى حي النصر بسعة 50 سريراً - كركوك
-     - تنفيذ ملعب قلعة سكر بسعة 2000 متفرج - ذي قار
-     - مشاريع إكساء وتطوير الطرق (أبو غريب، الكرمة، خان ضاري، الفلوجة)
-     - جسور وركائز كونكريتية (جسر الخضر، جسر تقاطع اليوسفية)
-     - مشاريع محطات المجاري والري (الكمالية، العبيدي، الفضلية)
-     - مشاريع وزارة النفط ووزارة الدفاع
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="p-8 rounded-2xl bg-gray-50 hover:bg-brand-beige border border-gray-100 transition-all">
+                    <div class="w-14 h-14 bg-brand-maroon text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">المقاولات الإنشائية والمدنية</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        إنشاء الطرق والجسور، المستشفيات، المجمعات السكنية، تركيب الهياكل الحديدية والصب الجاهز.
+                    </p>
+                </div>
 
-5. **Fleet & Plant Capabilities (الآليات والمعامل الإنتاجية):**
-   - Highlights of company assets:
-     - Asphalt Plants (معامل إسفلت ويباو ومارينا إيطالي)
-     - Concrete Batching Plants (معامل كونكريت مركزية ومتنقلة)
-     - Heavy Machinery Fleet (بلدوزرات D8، شوافل، قاشطات، حادلات، حفارات، وأسطول شاحنات مرسيدس)
-   <!-- [IMAGE PLACEHOLDER 3: Fleet & Industrial Facilities - Concrete & Asphalt Batching Plants] -->
+                <!-- Service 2 -->
+                <div class="p-8 rounded-2xl bg-gray-50 hover:bg-brand-beige border border-gray-100 transition-all">
+                    <div class="w-14 h-14 bg-brand-maroon text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">المقاولات الكهربائية</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        تنفيذ محطات التوليد، أبراج وشبكات نقل الطاقة، المولدات الضخمة، ونظم الاتصالات الحديثة.
+                    </p>
+                </div>
 
-6. **Contact Us & Footer (معلومات الاتصال والفروع):**
-   - **Headquarters:** العراق - بغداد - المنصور - حي دراغ
-   - **Phone Numbers:** 07830466368 / 07711109834
-   - **Email:** almaali2016@yahoo.com
-   - **Branches:** بغداد، صلاح الدين (الشرقاط)، الأنبار (الرمادي، القائم)، السماوة، البصرة.
-   - Quick inquiry contact form (Name, Phone, Subject, Message).
-   - Footer with copyright notice: "جميع الحقوق محفوظة © شركة تاج المعالي للمقاولات".
+                <!-- Service 3 -->
+                <div class="p-8 rounded-2xl bg-gray-50 hover:bg-brand-beige border border-gray-100 transition-all">
+                    <div class="w-14 h-14 bg-brand-maroon text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-truck-moving"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">النقل العام والخدمات اللوجستية</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        خدمات النقل العام واللوجستي وإدارة الأساطيل والتجهيزات للمشاريع الضخمة.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section Placeholders -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-maroon mb-4">المشاريع السابقة</h2>
+                <p class="text-gray-600">نماذج من أعمالنا ومشاريعنا المنجزة في مختلف المحافظات العراقية.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                    <div class="h-48 bg-slate-200 flex items-center justify-center text-gray-400">
+                        <i class="fa-solid fa-image text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">مشاريع البنية التحتية الطرقية</h3>
+                        <p class="text-gray-500 text-sm">مشاريع إكساء وتنفيذ الطرق والجسور.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                    <div class="h-48 bg-slate-200 flex items-center justify-center text-gray-400">
+                        <i class="fa-solid fa-image text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">المشاريع الصحية والسكنية</h3>
+                        <p class="text-gray-500 text-sm">إنشاء وتطوير المستشفيات والمجمعات.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                    <div class="h-48 bg-slate-200 flex items-center justify-center text-gray-400">
+                        <i class="fa-solid fa-image text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">شبكات نقل الطاقة</h3>
+                        <p class="text-gray-500 text-sm">بناء وتجهيز أساطيل ونقل الطاقة الكهربائية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet & Team Section -->
+    <section id="fleet" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-maroon mb-4">أسطول الآليات والكوادر</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+                نملك أسطولاً متكاملاً من المعدات والآليات الثقيلة، يسانده كادر هندسي وفني يتجاوز 70 متخصصاً لضمان سرعة وجودة التنفيذ.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-brand-slate text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-6">تواصل معنا</h2>
+                <p class="text-gray-300 mb-8">نحن مستعدون للرد على كافة استفساراتكم وبناء شراكات عمل مستدامة.</p>
+                <div class="inline-flex items-center space-x-3 space-x-reverse bg-brand-maroon px-8 py-4 rounded-xl shadow-lg">
+                    <i class="fa-solid fa-envelope text-brand-gold text-xl"></i>
+                    <span class="text-lg font-semibold">info@taj-almaali.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-gray-400 py-8 text-center text-sm border-t border-slate-800">
+        <p>© 2026 شركة تاج المعالي للمقاولات والتجارة والنقل العام المحدودة. جميع الحقوق محفوظة.</p>
+    </footer>
+
+</body>
+</html>
